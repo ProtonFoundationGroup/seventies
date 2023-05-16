@@ -1,1 +1,3 @@
 # seventies
+
+This is a app for wallet && p2p im ...
