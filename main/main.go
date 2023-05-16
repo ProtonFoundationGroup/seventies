@@ -1,23 +1,29 @@
 package main
 
 import (
-	"github.com/ProtonFundationGroup/seventies/v2/config"
-	"github.com/ProtonFundationGroup/seventies/v2/log"
-	"gopkg.in/yaml.v2"
+	"fmt"
+	"os"
+
+	"github.com/ProtonFundationGroup/seventies/v2/main/cmd"
+	"github.com/spf13/cobra"
 )
 
 func main() {
-	configFile := "../seventies.yml"
-	conf, err := config.Load(configFile)
-	if err != nil {
-		log.PrintNormal("load config file `%v` failed, err = %v", configFile, err)
-		return
+	var rootCmd = &cobra.Command{
+		Use:   "seventies",
+		Short: "Seventies app does awesome things",
 	}
 
-	configStr, err := yaml.Marshal(conf)
-	if err != nil {
-		return
-	}
+	initCmd := cmd.InitCmd()
+	startCmd := cmd.StartCmd()
+	stopCmd := cmd.StopCmd()
 
-	log.PrintGreen("config => \n%s", configStr)
+	// Add commands to root command
+	rootCmd.AddCommand(initCmd, startCmd, stopCmd)
+
+	// Execute root command
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }
