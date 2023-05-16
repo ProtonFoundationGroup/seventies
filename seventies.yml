@@ -1,0 +1,12 @@
+serial: "00001"
+
+chat:
+  name: "cai.zhihong"
+  age: 44
+  sex: "male"
+
+net:
+  node_id: "12345"
+
+wallet:
+  key: "afsfdsfsfsdfdffsdsfs"
