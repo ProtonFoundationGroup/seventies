@@ -1,0 +1,19 @@
+ 
+syntax = "proto3";
+
+option go_package = "github.com/ProtonFundationGroup/seventies/v2/server/pb-go/api";
+
+package api;
+
+service APIService {
+  rpc MyMethod(MyRequest) returns (MyResponse) {}
+}
+
+message MyRequest {
+  string input = 1;
+}
+
+message MyResponse {
+  string output = 1;
+}
+

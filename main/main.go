@@ -16,10 +16,9 @@ func main() {
 
 	initCmd := cmd.InitCmd()
 	startCmd := cmd.StartCmd()
-	stopCmd := cmd.StopCmd()
 
 	// Add commands to root command
-	rootCmd.AddCommand(initCmd, startCmd, stopCmd)
+	rootCmd.AddCommand(initCmd, startCmd)
 
 	// Execute root command
 	if err := rootCmd.Execute(); err != nil {

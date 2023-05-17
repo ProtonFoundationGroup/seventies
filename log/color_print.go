@@ -12,3 +12,7 @@ func PrintNormal(format string, v ...any) {
 func PrintGreen(format string, v ...any) {
 	log.New(os.Stdout, "\033[32m", log.LstdFlags).Printf(format, v...)
 }
+
+func PrintRed(format string, v ...any) {
+	log.New(os.Stdout, "\033[31m", log.LstdFlags).Printf(format, v...)
+}
