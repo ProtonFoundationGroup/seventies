@@ -2,15 +2,15 @@ package wallet
 
 import "errors"
 
-type Wallet struct {
+type Service struct {
 	balance float64
 }
 
-func (w *Wallet) Deposit(amount float64) {
+func (w *Service) Deposit(amount float64) {
 	w.balance += amount
 }
 
-func (w *Wallet) Withdraw(amount float64) error {
+func (w *Service) Withdraw(amount float64) error {
 	if amount > w.balance {
 		return errors.New("insufficient funds")
 	}
@@ -18,6 +18,6 @@ func (w *Wallet) Withdraw(amount float64) error {
 	return nil
 }
 
-func (w *Wallet) Balance() float64 {
+func (w *Service) Balance() float64 {
 	return w.balance
 }

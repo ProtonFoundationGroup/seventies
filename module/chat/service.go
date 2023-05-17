@@ -2,7 +2,7 @@
 package chat
 
 // This code creates a struct named "Person"
-type Person struct {
+type Service struct {
 	Name   string
 	Age    int
 	Gender string

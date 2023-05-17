@@ -6,14 +6,24 @@ option go_package = "github.com/ProtonFundationGroup/seventies/v2/server/pb-go/a
 package api;
 
 service APIService {
-  rpc MyMethod(MyRequest) returns (MyResponse) {}
+  rpc TestMethod(MyRequest) returns (MyResponse) {}
+}
+
+message KeyValuePair {
+    string key = 1;
+    bytes value = 2;
 }
 
 message MyRequest {
-  string input = 1;
+  string request_id = 1;
+  string service_name = 2;
+  string method = 3;
+  repeated KeyValuePair parameters = 4;
+  int64 timestamp = 5;
 }
 
 message MyResponse {
   string output = 1;
+  string rsp_msg = 2;
 }
 
